@@ -41,7 +41,7 @@ img{display:block;max-width:100%}
 .sec{border-radius:var(--r-sec);padding:clamp(48px,7vw,96px) 0;margin-top:clamp(10px,1.5vw,18px);position:relative}
 .sec--grey{background:radial-gradient(900px 520px at 88% 6%,rgba(255,255,255,.7),transparent 62%),radial-gradient(760px 480px at 2% 98%,rgba(0,0,0,.06),transparent 60%),var(--bg)}
 .sec--light{background:radial-gradient(820px 500px at 8% 0%,#fff,transparent 60%),radial-gradient(700px 460px at 100% 100%,rgba(0,0,0,.035),transparent 60%),var(--light)}
-.sec--dark{background:radial-gradient(820px 520px at 92% 100%,rgba(206,254,70,.12),transparent 62%),radial-gradient(700px 420px at 0% 0%,rgba(255,255,255,.06),transparent 60%),var(--dark);color:#fff}
+.sec--dark{background:var(--dark);color:#fff}
 .sec>.wrap{z-index:2}
 .tag{display:inline-block;background:#fff;color:var(--dark);border-radius:100px;padding:7px 16px;font-size:13px;font-weight:500}
 .sec--dark .tag{background:rgba(255,255,255,.1);color:#fff}
@@ -88,6 +88,7 @@ img{display:block;max-width:100%}
 .hero h1{font-size:clamp(38px,5vw,66px);font-weight:600;letter-spacing:-1.6px;line-height:1}
 .hero h1 em{font-style:normal;color:var(--green-t)}
 .hero__desc{margin-top:26px;font-size:clamp(15px,1.3vw,18px);line-height:1.4;font-weight:500;color:rgba(0,0,0,.55);max-width:520px}
+.hero__grid>div:first-child{position:relative;z-index:2}
 .hero__vis{position:relative;height:clamp(460px,44vw,600px)}
 
 /* ---------- букеты: ваза всегда уходит под карточки или за край блока ---------- */
@@ -194,7 +195,7 @@ ul.clean li:before{content:'✦';position:absolute;left:0;top:1px;font-size:11px
 .plan{display:grid;grid-template-columns:1fr minmax(240px,.5fr);gap:clamp(16px,3vw,40px)}
 .plan .steps{position:relative;z-index:2}
 
-.final{background:var(--dark);color:#fff;border-radius:var(--r-sec);margin-top:clamp(10px,1.5vw,18px);padding:clamp(48px,6vw,80px) 0;position:relative;background:radial-gradient(700px 420px at 50% 120%,rgba(206,254,70,.16),transparent 65%),var(--dark)}
+.final{background:var(--dark);color:#fff;border-radius:var(--r-sec);margin-top:clamp(10px,1.5vw,18px);padding:clamp(48px,6vw,80px) 0;position:relative}
 .final__in{text-align:center;display:flex;flex-direction:column;align-items:center}
 .final .h2{margin-left:auto;margin-right:auto}
 .final .lead{color:var(--muted-w)}
@@ -204,9 +205,11 @@ ul.clean li:before{content:'✦';position:absolute;left:0;top:1px;font-size:11px
 /* ---------- адаптив ---------- */
 @media (max-width:980px){
   .sales-conv{max-width:none}
-  .fl--side,.fl--bottom,.fl--plan{position:relative;inset:auto;width:auto;height:auto;margin:26px 0 calc(-1 * clamp(48px,7vw,96px));aspect-ratio:var(--ar);border-radius:0 0 var(--r-sec) var(--r-sec)}
-  .fl--side img,.fl--bottom img,.fl--plan img{left:50%;right:auto;top:auto;bottom:var(--cut);width:min(118%,560px);height:auto;margin-left:calc(min(118%,560px) / -2)}
-  .fl--side{--ar:1.25;--cut:-16%} .fl--bottom{--ar:1.55;--cut:-38%} .fl--plan{--ar:1.45;--cut:-24%}
+  .sec--grey,.sec--light{background:var(--bg)} .sec--light{background:var(--light)}
+  .fl--side,.fl--bottom,.fl--plan{--over:120px;position:relative;inset:auto;width:auto;height:auto;margin:calc(-1 * var(--over)) 0 calc(-1 * clamp(48px,7vw,96px));aspect-ratio:var(--ar);max-height:none;overflow:visible;clip-path:inset(-600px 0 0 0 round 0 0 var(--r-sec) var(--r-sec));z-index:3;border-radius:0}
+  .fl--side img,.fl--bottom img,.fl--plan img{left:4%;right:auto;top:auto;bottom:0;width:92%;height:auto;margin:0;transform:translateY(var(--cut))}
+  .fl--side{--ar:1.42;--cut:15%} .fl--bottom{--ar:1.82;--cut:30%} .fl--plan{--ar:1.62;--cut:22%}
+  .ncards>.ncard:last-child,.sales-conv .grid>.card:last-child,.plan .steps>.step:last-child{padding-bottom:calc(120px + 18px)}
   .sec--spill{margin-top:clamp(10px,1.5vw,18px)}
   .hdr__in{grid-template-columns:auto 1fr} .hdr__nav{display:none}
   .hero__grid{grid-template-columns:1fr} .hero__vis{height:460px;margin-top:10px}
@@ -219,10 +222,10 @@ ul.clean li:before{content:'✦';position:absolute;left:0;top:1px;font-size:11px
   .g2,.g3{grid-template-columns:1fr}
   .kpis{grid-template-columns:1fr 1fr}
   .kpis .kpi{font-size:30px}
-  .hero__vis{height:430px}
-  .fl--hero{right:-22%;top:10px;bottom:-112px;width:auto}
+  .hero__vis{height:300px;margin-top:22px}
+  .fl--hero{right:-30%;top:-64px;bottom:-128px;width:auto}
   .leadc{width:178px;padding:11px} .leadc b{font-size:14px} .leadc i{width:34px;height:34px;font-size:15px}
-  .l1{left:0;top:2%} .l2{left:6%;top:26%} .l3{left:0;top:50%} .l4{left:6%;top:74%}
+  .l1{left:0;top:0} .l2{left:7%;top:70px} .l3{left:0;top:140px} .l4{left:7%;top:210px}
   .ncards{grid-template-columns:1fr}
   .weeks{height:250px} .wk b{font-size:11px} .wk span{font-size:10px}
   .fail{font-size:10.5px;padding:6px 9px}
@@ -343,7 +346,7 @@ ul.clean li:before{content:'✦';position:absolute;left:0;top:1px;font-size:11px
       <div class="card card--green" data-a style="--d:.12s"><div class="kpi" data-count="36" data-suf="%">36%</div><div class="kpi-l">заявок становятся покупкой</div></div>
       <div class="card card--glass" data-a style="--d:.19s"><div class="kpi" data-count="1.4" data-dec="1" data-suf="%">1,4%</div><div class="kpi-l">кликов по рекламе заканчиваются оплатой</div></div>
     </div>
-    <p class="small">С 7 октября по 3 ноября 2026. 17 покупателей сделали 18 оплат.</p></div>
+    </div>
   </div>
   <div class="fl fl--bottom" style="--d:.2s"><div class="fl__g"><div class="fl__p" data-par="-0.05"><img src="img/hydrangea.webp" alt="Букет голубых гортензий" width="1378" height="1141" loading="lazy"></div></div></div>
 </section>
@@ -510,7 +513,7 @@ ul.clean li:before{content:'✦';position:absolute;left:0;top:1px;font-size:11px
 
   // лёгкий параллакс букетов
   var par=[].slice.call(document.querySelectorAll('[data-par]'));
-  if(!reduce && par.length){
+  if(!reduce && par.length && !matchMedia('(max-width:980px)').matches){
     var tick=false;
     function upd(){tick=false;var vh=innerHeight;par.forEach(function(b){var r=b.getBoundingClientRect();if(r.bottom<-200||r.top>vh+200)return;var c=(r.top+r.height/2-vh/2);b.style.transform='translate3d(0,'+(c*+b.dataset.par).toFixed(1)+'px,0)'})}
     addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
