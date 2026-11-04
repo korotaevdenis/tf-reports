@@ -83,7 +83,8 @@ img{display:block;max-width:100%}
 .hero{background:radial-gradient(1000px 680px at 80% 34%,rgba(255,255,255,.8),transparent 62%),radial-gradient(700px 500px at 0% 100%,rgba(0,0,0,.05),transparent 60%),var(--bg);border-radius:0 0 var(--r-sec) var(--r-sec);padding:clamp(110px,12vw,150px) 0 clamp(48px,6vw,80px);overflow:hidden;position:relative}
 .hero__grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:end;position:relative}
 .period{display:inline-flex;align-items:center;gap:12px;padding:8px 20px 8px 8px;border-radius:16px;background:rgba(255,255,255,.94);margin-bottom:clamp(28px,4vw,56px)}
-.period i{width:48px;height:48px;border-radius:12px;background:#FC3F1D;color:#fff;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:700;font-size:20px}
+.period i{width:48px;height:48px;flex:none;display:flex}
+.period i svg{width:100%;height:100%}
 .period b{display:block;font-size:14px} .period small{font-size:15px;font-weight:600;letter-spacing:-.2px}
 .hero h1{font-size:clamp(38px,5vw,66px);font-weight:600;letter-spacing:-1.6px;line-height:1}
 .hero h1 em{font-style:normal;color:var(--green-t)}
@@ -204,12 +205,14 @@ ul.clean li:before{content:'✦';position:absolute;left:0;top:1px;font-size:11px
 
 /* ---------- адаптив ---------- */
 @media (max-width:980px){
+  .hero{padding-top:96px}
+  .period{position:absolute;top:-82px;right:0;margin:0;padding:6px 14px 6px 6px;gap:10px;z-index:3}
+  .period i{width:40px;height:40px} .period b{font-size:12.5px} .period small{font-size:13.5px}
   .sales-conv{max-width:none}
   .sec--grey,.sec--light{background:var(--bg)} .sec--light{background:var(--light)}
-  .fl--side,.fl--bottom,.fl--plan{--over:120px;position:relative;inset:auto;width:auto;height:auto;margin:calc(-1 * var(--over)) 0 calc(-1 * clamp(48px,7vw,96px));aspect-ratio:var(--ar);max-height:none;overflow:visible;clip-path:inset(-600px 0 0 0 round 0 0 var(--r-sec) var(--r-sec));z-index:3;border-radius:0}
+  .fl--side,.fl--bottom,.fl--plan{position:relative;inset:auto;width:auto;height:auto;margin:calc(-1 * var(--over)) 0 calc(-1 * clamp(48px,7vw,96px));aspect-ratio:var(--ar);max-height:none;overflow:visible;clip-path:inset(-600px 0 0 0 round 0 0 var(--r-sec) var(--r-sec));z-index:3;border-radius:0}
   .fl--side img,.fl--bottom img,.fl--plan img{left:4%;right:auto;top:auto;bottom:0;width:92%;height:auto;margin:0;transform:translateY(var(--cut))}
-  .fl--side{--ar:1.42;--cut:15%} .fl--bottom{--ar:1.82;--cut:30%} .fl--plan{--ar:1.62;--cut:22%}
-  .ncards>.ncard:last-child,.sales-conv .grid>.card:last-child,.plan .steps>.step:last-child{padding-bottom:calc(120px + 18px)}
+  .fl--side{--over:26px;--ar:1.42;--cut:15%} .fl--bottom{--over:22px;--ar:1.56;--cut:16%} .fl--plan{--over:24px;--ar:1.62;--cut:22%}
   .sec--spill{margin-top:clamp(10px,1.5vw,18px)}
   .hdr__in{grid-template-columns:auto 1fr} .hdr__nav{display:none}
   .hero__grid{grid-template-columns:1fr} .hero__vis{height:460px;margin-top:10px}
@@ -223,7 +226,7 @@ ul.clean li:before{content:'✦';position:absolute;left:0;top:1px;font-size:11px
   .kpis{grid-template-columns:1fr 1fr}
   .kpis .kpi{font-size:30px}
   .hero__vis{height:300px;margin-top:22px}
-  .fl--hero{right:-30%;top:-64px;bottom:-128px;width:auto}
+  .fl--hero{right:-25%;top:-79px;bottom:-138px;width:auto}
   .leadc{width:178px;padding:11px} .leadc b{font-size:14px} .leadc i{width:34px;height:34px;font-size:15px}
   .l1{left:0;top:0} .l2{left:7%;top:70px} .l3{left:0;top:140px} .l4{left:7%;top:210px}
   .ncards{grid-template-columns:1fr}
@@ -259,7 +262,7 @@ ul.clean li:before{content:'✦';position:absolute;left:0;top:1px;font-size:11px
   <div class="wrap">
     <div class="hero__grid">
       <div>
-        <div class="period" data-a style="--d:.05s"><i>Я</i><div><b>Яндекс Директ</b><small>16.09–03.11.2026</small></div></div>
+        <div class="period" data-a style="--d:.05s"><i><svg viewBox="0 0 40 40" aria-label="Яндекс Директ"><path d="M0 20a20 20 0 1 1 40 0 20 20 0 1 1-40 0z" fill="#1A4A7F"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16.73 39.73a19.95 19.95 0 0 1-10.64-5.35l18.02-16.54-10.3 2.5a5.29 5.29 0 0 1-6.42-3.96 5.45 5.45 0 0 1 4.01-6.5l21.44-5.21a20 20 0 0 1-4.83 33.66c-.06-.71.01-1.45.26-2.17l3.4-10.14-14.94 13.71z" fill="url(#ydg)"/><defs><linearGradient id="ydg" x1="49.06" y1="2.53" x2="-19.41" y2="65.36" gradientUnits="userSpaceOnUse"><stop stop-color="#FFB800"/><stop offset="1" stop-color="#FFF11D"/></linearGradient></defs></svg></i><div><b>Яндекс Директ</b><small>16.09–03.11.2026</small></div></div>
         <h1 data-a style="--d:.12s">Milovini:<br>отчёт по рекламе<br>в <em>Яндекс Директе</em></h1>
         <p class="hero__desc" data-a style="--d:.22s">Мы подготовили отчёт по проделанной работе. Расписали показатели, объяснили всё простым языком и указали на точки роста.</p>
       </div>
