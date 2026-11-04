@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Milovini: отчёт по Яндекс Директу · TargetFactory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --dark:#202020; --black:#111; --green:#CEFE46; --green-h:#CEFF32; --green-t:#ABD243;
+  --bg:#DBDBDB; --light:#F4F4F4; --white:#fff;
+  --muted:rgba(0,0,0,.4); --muted-w:rgba(255,255,255,.62);
+  --ease:cubic-bezier(.2,.75,.25,1); --pop:cubic-bezier(.18,.89,.32,1.22);
+  --r-sec:clamp(38px,6.25vw,120px); --r-card:30px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Inter Tight",Inter,Arial,sans-serif;color:var(--dark);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,100% - 2*clamp(16px,4vw,40px));margin:0 auto}
+
+/* ---------- header (как на сайте) ---------- */
+.hdr{position:fixed;z-index:50;left:0;top:0;width:100%;pointer-events:none}
+.hdr__in{min-height:92px;padding:16px clamp(18px,3vw,42px);display:grid;grid-template-columns:150px 1fr 260px;align-items:center;gap:24px;pointer-events:auto}
+.hdr__soc{display:flex;gap:3px}
+.hdr__soc a{width:44px;height:44px;border-radius:50%;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;transition:background-color .28s,color .28s,transform .28s}
+.hdr__soc a:hover{background:var(--green-h);color:#000;transform:translateY(-2px)}
+.hdr__soc svg{width:20px;height:20px}
+.hdr__nav{justify-self:center;display:flex;align-items:center;min-height:44px;padding:0 20px;border-radius:100px;background:var(--dark)}
+.hdr__nav nav{display:flex;gap:clamp(20px,2.4vw,38px);white-space:nowrap}
+.hdr__nav a{min-height:44px;display:inline-flex;align-items:center;color:#fff;font-size:14px;font-weight:600;transition:color .25s}
+.hdr__nav a:hover{color:var(--green-h)}
+.hdr__cta{display:flex;justify-content:flex-end;gap:3px}
+.hdr__dot{width:44px;height:44px;border-radius:50%;background:var(--green-h);display:flex;align-items:center;justify-content:center;transition:background-color .28s,transform .28s}
+.hdr__dot span{width:5px;height:5px;border-radius:50%;background:var(--dark)}
+.hdr__btn{min-height:44px;padding:0 24px;display:flex;align-items:center;border-radius:100px;background:var(--green-h);font-size:14px;font-weight:700;white-space:nowrap;transition:background-color .28s,color .28s}
+.hdr__cta:hover .hdr__dot{background:var(--dark);transform:translateY(-2px)}
+.hdr__cta:hover .hdr__dot span{background:var(--green-h)}
+.hdr__cta:hover .hdr__btn{background:var(--dark);color:#fff}
+
+/* ---------- общие элементы ---------- */
+.sec{border-radius:var(--r-sec);padding:clamp(48px,7vw,96px) 0;margin-top:clamp(10px,1.5vw,18px)}
+.sec--grey{background:var(--bg)} .sec--light{background:var(--light)} .sec--dark{background:var(--dark);color:#fff}
+.tag{display:inline-block;background:#fff;color:var(--dark);border-radius:100px;padding:7px 16px;font-size:13px;font-weight:500}
+.sec--dark .tag{background:rgba(255,255,255,.1);color:#fff}
+.h2{font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-1.2px;line-height:1.02;margin:16px 0 12px;max-width:820px}
+.lead{font-size:clamp(14px,1.2vw,16px);line-height:1.45;font-weight:500;color:var(--muted);max-width:760px}
+.sec--dark .lead,.card--dark .lead,.card--glass .lead{color:var(--muted-w)}
+.grid{display:grid;gap:clamp(8px,1vw,12px)}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border-radius:var(--r-card);padding:clamp(20px,2.2vw,30px)}
+.card--light{background:var(--light)} .card--green{background:var(--green)} .card--dark{background:var(--dark);color:#fff} .card--glass{background:rgba(255,255,255,.07);color:#fff}
+.h3{font-size:clamp(18px,1.6vw,21px);font-weight:600;letter-spacing:-.5px;line-height:1.15}
+.kpi{font-size:clamp(34px,4vw,54px);font-weight:600;letter-spacing:-1.6px;line-height:1}
+.kpi-l{font-size:14px;font-weight:500;margin-top:10px;color:var(--muted)}
+.card--green .kpi-l{color:rgba(0,0,0,.6)} .card--dark .kpi-l,.card--glass .kpi-l{color:var(--muted-w)}
+.num{width:40px;height:40px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex:none;color:var(--dark)}
+.btn{display:inline-flex;align-items:center;gap:13px;min-height:55px;padding:5px 5px 5px 25px;border-radius:100px;background:var(--dark);color:#fff;font-size:14.8px;font-weight:600;transition:transform .3s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:44px;height:44px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:rotate(45deg)}
+.btn--out{background:transparent;color:var(--dark);border:1px solid var(--dark);padding:0 26px}
+.mt{margin-top:clamp(24px,3vw,40px)}
+.small{font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.4}
+.sec--dark .small{color:var(--muted-w)}
+
+/* ---------- анимации появления (как fmFadeUp на сайте) ---------- */
+[data-a]{opacity:0;transform:translateY(26px)}
+.in[data-a],.in [data-a]{animation:fadeUp .8s var(--ease) both;animation-delay:var(--d,0s)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:translateY(28px) scale(.88) rotate(var(--r0,-3deg))}100%{opacity:1;transform:translateY(0) scale(1) rotate(var(--r1,2deg))}}
+@keyframes float{0%{transform:translateY(0) rotate(var(--r1,2deg))}100%{transform:translateY(-7px) rotate(var(--r1,2deg))}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--bg);border-radius:0 0 var(--r-sec) var(--r-sec);padding:clamp(110px,12vw,150px) 0 clamp(48px,6vw,80px);overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero__benefits{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,90px)}
+.benefit{display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:16px;background:rgba(255,255,255,.94)}
+.benefit i{width:44px;height:44px;border-radius:12px;background:var(--dark);color:var(--green);display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:700;font-size:16px}
+.benefit b{display:block;font-size:12px} .benefit small{font-size:11px;color:var(--muted)}
+.hero h1{font-size:clamp(36px,5vw,64px);font-weight:600;letter-spacing:-1.35px;line-height:1}
+.hero__desc{margin-top:28px;font-size:clamp(14px,1.2vw,16px);line-height:1.35;font-weight:500;color:var(--muted);max-width:520px}
+.hero__actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:36px}
+.hero__vis{position:relative;min-height:440px}
+.leadc{position:absolute;display:flex;align-items:center;gap:10px;width:230px;padding:16px 14px;border-radius:12px;background:rgba(255,255,255,.96);box-shadow:0 8px 30px rgba(0,0,0,.06);opacity:0}
+.leadc--dark{background:var(--dark);color:#fff}
+.leadc i{width:40px;height:40px;border-radius:8px;flex:none;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:700;color:#fff;font-size:17px}
+.leadc small{display:block;font-size:11px;opacity:.6} .leadc b{font-size:16px;letter-spacing:-.3px}
+.leadc em{position:absolute;right:-8px;top:-11px;min-width:24px;height:24px;padding:0 7px;border-radius:12px;background:var(--green);color:var(--dark);font-size:11px;font-style:normal;font-weight:700;display:flex;align-items:center;justify-content:center}
+.hero.in .leadc{animation:pop .72s var(--pop) both,float 6s ease-in-out 1.4s infinite alternate;animation-delay:var(--d),calc(var(--d) + .8s)}
+.l1{left:4%;top:4%;--r0:-3deg;--r1:2deg;--d:.45s} .l2{left:24%;top:28%;--r0:3deg;--r1:-3deg;--d:.6s} .l3{left:6%;top:53%;--r0:-2deg;--r1:1.5deg;--d:.75s} .l4{left:30%;top:77%;--r0:2deg;--r1:-1.5deg;--d:.9s}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1vw,12px);margin-top:clamp(40px,5vw,64px)}
+
+/* ---------- графики ---------- */
+.weeks{display:flex;align-items:flex-end;gap:clamp(6px,1.2vw,18px);height:300px;padding-top:30px}
+.wk{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px}
+.wk b{font-size:14px} .wk span{font-size:12px;color:var(--muted);margin-top:6px}
+.wk .other,.wk .ad{width:100%;border-radius:14px;transform-origin:bottom;transform:scaleY(0);transition:transform 1s var(--ease);transition-delay:var(--d)}
+.wk .other{background:var(--dark);border-radius:10px;min-height:8px}
+.wk .ad{background:var(--green)}
+.in .wk .other,.in .wk .ad{transform:scaleY(1)}
+.wk b{opacity:0;transition:opacity .5s;transition-delay:calc(var(--d) + .6s)} .in .wk b{opacity:1}
+.legend{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;margin-top:16px;align-items:center}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:7px;vertical-align:-1px}
+
+.funnel{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:32px}
+.fstep{height:64px;border-radius:32px;display:flex;justify-content:space-between;align-items:center;padding:0 30px;font-size:15px;font-weight:500;color:var(--dark);width:var(--w);clip-path:inset(0 50% 0 50% round 32px);transition:clip-path 1s var(--ease);transition-delay:var(--d)}
+.fstep b{font-size:clamp(20px,2vw,26px);font-weight:700}
+.in .fstep{clip-path:inset(0 0 0 0 round 32px)}
+
+.donut{width:180px;height:180px;flex:none}
+.donut circle{fill:none;stroke-width:26;transform:rotate(-90deg);transform-origin:center}
+.donut .s1,.donut .s2{stroke-dasharray:0 377;transition:stroke-dasharray 1.4s var(--ease) .2s}
+.in .donut .s1{stroke-dasharray:186.3 377} .in .donut .s2{stroke-dasharray:190.7 377}
+
+.tbars{display:flex;align-items:flex-end;gap:clamp(8px,2vw,30px);height:240px;margin-top:20px}
+.tb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:8px}
+.tb div{width:100%;border-radius:16px;height:var(--h);transform:scaleY(0);transform-origin:bottom;transition:transform 1s var(--ease);transition-delay:var(--d)}
+.in .tb div{transform:scaleY(1)}
+.tb b{font-size:15px} .tb span{font-size:12.5px;color:var(--muted)}
+
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font-size:12.5px;font-weight:600;color:var(--muted);text-align:right;padding:12px 10px;border-bottom:1px solid rgba(0,0,0,.08)}
+th:first-child,td:first-child{text-align:left}
+td{padding:14px 10px;text-align:right;border-bottom:1px solid rgba(0,0,0,.06)}
+tr.hl td{background:rgba(206,254,70,.38)}
+tr.hl td:first-child{border-radius:14px 0 0 14px} tr.hl td:last-child{border-radius:0 14px 14px 0}
+.tablewrap{overflow-x:auto}
+
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;gap:18px;align-items:flex-start}
+.step p{margin-top:6px}
+
+ul.clean{list-style:none;margin-top:20px} ul.clean li{position:relative;padding-left:22px;margin:10px 0;font-size:15px;line-height:1.45;font-weight:500}
+ul.clean li:before{content:'✦';position:absolute;left:0;top:1px;font-size:11px;color:var(--green)}
+
+.foot{padding:40px 0 60px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+
+/* ---------- адаптив ---------- */
+@media (max-width:980px){
+  .hdr__in{grid-template-columns:auto 1fr auto} .hdr__nav{display:none} .hdr__cta{grid-column:3}
+  .hero__grid{grid-template-columns:1fr} .hero__vis{min-height:360px}
+  .g3,.kpis{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .hdr__in{min-height:72px;padding:12px 16px} .hdr__btn{padding:0 16px;font-size:13px}
+  .hdr__dot{display:none}
+  .g2,.g3,.kpis{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+  .hero__vis{min-height:340px} .leadc{width:190px;padding:12px}
+  .l2{left:30%} .l4{left:22%}
+  .weeks{height:230px} .wk b{font-size:11px} .wk span{font-size:10px}
+  .fstep{height:54px;padding:0 20px;font-size:13px}
+  .tbars{height:180px} .tb b{font-size:12px} .tb span{font-size:10px;text-align:center}
+  table{font-size:13px} th,td{padding:10px 6px}
+  th:nth-child(3),td:nth-child(3),th:nth-child(4),td:nth-child(4){display:none}
+  .sales-row{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){
+  [data-a],.leadc{opacity:1!important;transform:none!important;animation:none!important}
+  .wk .other,.wk .ad,.tb div{transform:none!important;transition:none!important}
+  .fstep{clip-path:none!important} .donut .s1{stroke-dasharray:186.3 377!important} .donut .s2{stroke-dasharray:190.7 377!important}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr"><div class="hdr__in">
+  <div class="hdr__soc">
+    <a href="https://t.me/korotaev_denis" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M19.8 4.4L16.9 18c-.2 1-.8 1.2-1.6.7l-4.4-3.2-2.1 2c-.2.2-.4.4-.8.4l.3-4.5 8.2-7.4c.4-.3-.1-.5-.5-.2L5.9 12.2l-4.4-1.4c-1-.3-1-1 .2-1.5L18.9 2.7c.8-.3 1.5.2.9 1.7Z" fill="currentColor"/></svg></a>
+    <a href="https://max.ru/u/f9LHodD0cOLcKLkeG8Hr_oFXFF0snzqnNOGgHN2cX0meUwSiovnBh1wb8xM" target="_blank" rel="noopener" aria-label="MAX"><svg viewBox="0 0 48 48" style="width:22px;height:22px"><path fill="currentColor" fill-rule="evenodd" d="M24 4.5C13.2 4.5 4.5 12.7 4.5 22.9c0 4.1 1.3 7.9 3.6 11L6.6 40c-.4 1.7 1.3 3.1 2.9 2.4l6.4-2.7c2.5 1.1 5.2 1.7 8.1 1.7 10.8 0 19.5-8.2 19.5-18.5S34.8 4.5 24 4.5Zm0 9.1c5.6 0 10.1 4.1 10.1 9.3 0 5.1-4.5 9.3-10.1 9.3-2.2 0-4.3-.7-6-1.9l-3.7 1.5.9-3.8c-.9-1.5-1.3-3.2-1.3-5.1 0-5.2 4.5-9.3 10.1-9.3Z"/></svg></a>
+  </div>
+  <div class="hdr__nav"><nav>
+    <a href="#itogi">Итоги</a><a href="#trafik">Трафик</a><a href="#prodazhi">Продажи</a><a href="#zaprosy">Запросы</a><a href="#plan">План</a>
+  </nav></div>
+  <a class="hdr__cta" href="https://t.me/korotaev_denis" target="_blank" rel="noopener"><span class="hdr__dot"><span></span></span><span class="hdr__btn">Обсудить план</span></a>
+</div></header>
+
+<!-- HERO -->
+<section class="hero" id="itogi" data-io>
+  <div class="wrap">
+    <div class="hero__benefits" data-a style="--d:.05s">
+      <div class="benefit"><i>Я</i><div><b>Яндекс Директ</b><small>16.09–03.11.2026</small></div></div>
+      <div class="benefit"><i>₽</i><div><b>Считаем продажи, не клики</b><small>сверено с amoCRM</small></div></div>
+    </div>
+    <div class="hero__grid">
+      <div>
+        <h1 data-a style="--d:.12s">Milovini:<br>отчёт по рекламе<br>в Яндекс Директе</h1>
+        <p class="hero__desc" data-a style="--d:.22s">Мы сделали Milovini новый сайт и в сентябре запустили на него рекламу в Яндексе. Здесь главное: сколько людей пришло, сколько купили и что делаем дальше.</p>
+        <div class="hero__actions" data-a style="--d:.3s">
+          <a class="btn" href="#prodazhi">Смотреть продажи <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#CEFE46"/><path d="M16 28L28 16M20 16H28V24" fill="none" stroke="#202020" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn--out" href="#plan">План на месяц</a>
+        </div>
+      </div>
+      <div class="hero__vis">
+        <div class="leadc l1"><i style="background:#FC3F1D">Я</i><div><small>Заходы на сайт</small><b>из Яндекса</b></div><em>2 908</em></div>
+        <div class="leadc leadc--dark l2"><i style="background:var(--green);color:var(--dark)">₽</i><div><small>Оплаченные заказы</small><b>66 795 ₽</b></div><em>+20</em></div>
+        <div class="leadc l3"><i style="background:var(--dark)">🛒</i><div><small>Добавили в корзину</small><b>Букеты с сайта</b></div><em>139</em></div>
+        <div class="leadc l4"><i style="background:#229ED9">✈</i><div><small>Оплата в переписке</small><b>Мессенджеры</b></div><em>+9</em></div>
+      </div>
+    </div>
+    <div class="kpis" data-io>
+      <div class="card card--green" data-a style="--d:.05s"><div class="kpi" data-count="20">20</div><div class="kpi-l">продаж с сайта</div></div>
+      <div class="card card--dark" data-a style="--d:.12s"><div class="kpi" data-count="66795" data-suf=" ₽">66 795 ₽</div><div class="kpi-l">сумма продаж</div></div>
+      <div class="card" data-a style="--d:.19s"><div class="kpi" data-count="2908">2 908</div><div class="kpi-l">заходов на сайт из Яндекса</div></div>
+      <div class="card" data-a style="--d:.26s"><div class="kpi" data-count="21" data-suf=" ₽">21 ₽</div><div class="kpi-l">средняя цена клика</div></div>
+      <div class="card" data-a style="--d:.33s"><div class="kpi">≈1 мин</div><div class="kpi-l">среднее время на сайте</div></div>
+      <div class="card" data-a style="--d:.4s"><div class="kpi" data-count="60047" data-suf=" ₽">60 047 ₽</div><div class="kpi-l">вложено в рекламу за весь период</div></div>
+    </div>
+    <p class="small">Продажи считаем с 5 октября: с этого дня заявки сайта сохраняются и сверены с amoCRM. Сентябрьские продажи в отчёт не вошли.</p>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<section class="sec sec--grey" id="trafik" data-io>
+  <div class="wrap">
+    <span class="tag" data-a>Как считаем</span>
+    <h2 class="h2" data-a style="--d:.08s">Новый сайт и реклама стартовали вместе</h2>
+    <p class="lead" data-a style="--d:.14s">Сайт мы запустили одновременно с рекламой в Яндекс Директе. Поэтому все покупки с сайта относим к рекламе, и вот почему:</p>
+    <div class="grid g3 mt">
+      <div class="card" data-a style="--d:.1s"><div class="num">1</div><h3 class="h3" style="margin-top:16px">Сайт новый</h3><p class="lead" style="margin-top:8px">Поисковикам нужны месяцы, чтобы показывать новый сайт. Из бесплатного поиска Яндекса пришло всего 3% заходов.</p></div>
+      <div class="card" data-a style="--d:.2s"><div class="num">2</div><h3 class="h3" style="margin-top:16px">79% заходов по рекламе</h3><p class="lead" style="margin-top:8px">Почти все люди попадают на сайт, нажав на объявление в Яндексе.</p></div>
+      <div class="card" data-a style="--d:.3s"><div class="num">3</div><h3 class="h3" style="margin-top:16px">Постоянные клиенты пишут в личку</h3><p class="lead" style="margin-top:8px">Кто уже покупал, обычно пишет сразу в мессенджер, где переписывался раньше, а не идёт на сайт.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAFFIC -->
+<section class="sec sec--light" data-io>
+  <div class="wrap">
+    <span class="tag" data-a>Заходы на сайт</span>
+    <h2 class="h2" data-a style="--d:.08s">2 908 заходов из Яндекса, это 82% всего трафика</h2>
+    <p class="lead" data-a style="--d:.14s">Всего на сайт зашли 3 547 раз, из них 2 796 по рекламе Директа. В неделю с 12 октября реклама почти не показывалась, и заходов стало в 4 раза меньше: сайт живёт за счёт рекламы. В октябре заходов в день стало на 47% больше, чем в сентябре.</p>
+    <div class="card mt" data-a style="--d:.2s">
+      <div class="weeks" data-io>
+        <!-- max 839 -> 100% -->
+        <div class="wk" style="--d:.0s"><b>250</b><div class="other" style="height:6.7%"></div><div class="ad" style="height:23.1%"></div><span>14.09</span></div>
+        <div class="wk" style="--d:.08s"><b>470</b><div class="other" style="height:13.8%"></div><div class="ad" style="height:42.1%"></div><span>21.09</span></div>
+        <div class="wk" style="--d:.16s"><b>839</b><div class="other" style="height:12%"></div><div class="ad" style="height:88%"></div><span>28.09</span></div>
+        <div class="wk" style="--d:.24s"><b>688</b><div class="other" style="height:13.3%"></div><div class="ad" style="height:68.7%"></div><span>05.10</span></div>
+        <div class="wk" style="--d:.32s"><b>156</b><div class="other" style="height:10.1%"></div><div class="ad" style="height:8.5%"></div><span>12.10</span></div>
+        <div class="wk" style="--d:.4s"><b>525</b><div class="other" style="height:14.2%"></div><div class="ad" style="height:48.4%"></div><span>19.10</span></div>
+        <div class="wk" style="--d:.48s"><b>417</b><div class="other" style="height:14.2%"></div><div class="ad" style="height:35.5%"></div><span>26.10</span></div>
+        <div class="wk" style="--d:.56s"><b>202</b><div class="other" style="height:2.9%"></div><div class="ad" style="height:21.2%"></div><span>02.11*</span></div>
+      </div>
+      <div class="legend"><span><i style="background:var(--green)"></i>Реклама Яндекс Директа</span><span><i style="background:var(--dark)"></i>Остальные источники</span><span style="color:var(--muted)">* неделя со 2.11, данные за 2 дня</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SALES -->
+<section class="sec sec--dark" id="prodazhi" data-io>
+  <div class="wrap">
+    <span class="tag" data-a>Продажи</span>
+    <h2 class="h2" data-a style="--d:.08s">Каждый третий, кто оставил заявку, покупает букет</h2>
+    <p class="lead" data-a style="--d:.14s">Мы сверили каждую заявку с сайта со сделками в amoCRM по номеру заявки и телефону. С 7 октября все заявки доходят до менеджеров, ни одна не потерялась.</p>
+    <div class="funnel" data-io>
+      <div class="fstep" style="--w:100%;--d:.1s;background:#fff">Кликов по рекламе <b>1 202</b></div>
+      <div class="fstep" style="--w:75%;--d:.35s;background:var(--green)">Оставили заявку на сайте <b>47</b></div>
+      <div class="fstep" style="--w:47%;--d:.6s;background:var(--green-t)">Купили <b>17</b></div>
+    </div>
+    <p class="small">С 7 октября по 3 ноября 2026. 17 покупателей сделали 18 оплат.</p>
+  </div>
+</section>
+
+<section class="sec sec--light" data-io>
+  <div class="wrap grid g2">
+    <div class="card" data-a>
+      <h3 class="h3">Где клиент оплатил</h3>
+      <p class="lead" style="margin-top:8px">Половина оставляет заявку на сайте, а заказ оформляет в переписке с менеджером: уточняет состав, открытку и время доставки.</p>
+      <div style="display:flex;align-items:center;gap:28px;margin-top:24px;flex-wrap:wrap" data-io>
+        <svg class="donut" viewBox="0 0 180 180"><circle cx="90" cy="90" r="60" stroke="#F4F4F4"/><circle class="s1" cx="90" cy="90" r="60" stroke="#CEFE46"/><circle class="s2" cx="90" cy="90" r="60" stroke="#202020" style="stroke-dashoffset:-186.3"/><text x="90" y="92" text-anchor="middle" font-size="30" font-weight="700" fill="#202020" font-family="Inter Tight">18</text><text x="90" y="114" text-anchor="middle" font-size="12" fill="rgba(0,0,0,.45)" font-family="Inter Tight">оплат</text></svg>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div><b style="font-size:16px"><i style="display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--green);margin-right:8px"></i>На сайте</b><div class="kpi-l" style="margin-top:4px">9 оплат · 29 455 ₽</div></div>
+          <div><b style="font-size:16px"><i style="display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--dark);margin-right:8px"></i>В мессенджере</b><div class="kpi-l" style="margin-top:4px">9 оплат · 30 150 ₽</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="grid" style="align-content:start">
+      <div data-a style="--d:.05s"><h3 class="h3">Окупаемость</h3><p class="lead" style="margin-top:8px">С 7 октября по 3 ноября, когда все заявки уже доходили до CRM.</p></div>
+      <div class="card" data-a style="--d:.12s"><div class="kpi" data-count="32189" data-suf=" ₽">32 189 ₽</div><div class="kpi-l">вложено в рекламу</div></div>
+      <div class="card card--green" data-a style="--d:.2s"><div class="kpi" data-count="59605" data-suf=" ₽">59 605 ₽</div><div class="kpi-l">продажи с сайта, это ×1,85 к вложениям</div></div>
+      <div class="card card--dark" data-a style="--d:.28s"><div class="kpi">≈1 790 ₽</div><div class="kpi-l">реклама на одну продажу при среднем чеке 3 310 ₽</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY -->
+<section class="sec sec--grey" data-io>
+  <div class="wrap">
+    <span class="tag" data-a>Качество трафика</span>
+    <h2 class="h2" data-a style="--d:.08s">Люди задерживаются на сайте и выбирают букет</h2>
+    <p class="lead" data-a style="--d:.14s">Среднее время на сайте из рекламы около минуты (54 секунды). Для цветочного магазина это хорошо: каталог и корзина на одной странице, букет можно выбрать и заказать, никуда не переходя.</p>
+    <div class="card mt" data-a style="--d:.2s">
+      <h3 class="h3">Сколько времени проводят на сайте</h3>
+      <div class="tbars" data-io>
+        <div class="tb"><b>42%</b><div style="--h:100%;--d:0s;background:#DBDBDB"></div><span>до 10 сек</span></div>
+        <div class="tb"><b>35%</b><div style="--h:83%;--d:.1s;background:var(--green)"></div><span>10–29 сек</span></div>
+        <div class="tb"><b>8%</b><div style="--h:19%;--d:.2s;background:var(--dark)"></div><span>30–59 сек</span></div>
+        <div class="tb"><b>6%</b><div style="--h:14%;--d:.3s;background:var(--dark)"></div><span>1–2 мин</span></div>
+        <div class="tb"><b>9%</b><div style="--h:21%;--d:.4s;background:var(--dark)"></div><span>больше 2 мин</span></div>
+      </div>
+      <p class="lead" style="margin-top:18px">Больше половины задерживаются дольше 10 секунд. 139 раз букет положили в корзину, 114 раз отправили заявку.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--light" data-io>
+  <div class="wrap">
+    <span class="tag" data-a>Клик и CTR</span>
+    <h2 class="h2" data-a style="--d:.08s">Дешёвый клик и высокий CTR: хорошо, но это не цель</h2>
+    <p class="lead" data-a style="--d:.14s">Клик стоит в среднем 21 ₽, на объявления нажимают 4,19% тех, кто их видит. Значит, объявления точно попадают в запрос. Но сами по себе эти цифры ничего не приносят: клики могут быть очень дешёвыми, а покупок не будет. Или дорогими, зато покупает каждый второй.</p>
+    <div class="grid g3 mt">
+      <div class="card" data-a style="--d:.1s"><div class="kpi" data-count="21" data-suf=" ₽">21 ₽</div><div class="kpi-l">средняя цена клика</div></div>
+      <div class="card" data-a style="--d:.18s"><div class="kpi">4,19%</div><div class="kpi-l">CTR, на поиске 5,24%</div></div>
+      <div class="card card--green" data-a style="--d:.26s"><div class="kpi" data-count="36" data-suf="%">36%</div><div class="kpi-l">заявок становятся покупкой, вот что важно</div></div>
+    </div>
+    <p class="h3 mt" data-a style="font-weight:500;max-width:760px">Поэтому мы оцениваем рекламу по продажам и стоимости продажи, а клики и CTR используем только как подсказку для настройки.</p>
+  </div>
+</section>
+
+<!-- KEYWORDS -->
+<section class="sec sec--grey" id="zaprosy" data-io>
+  <div class="wrap">
+    <span class="tag" data-a>Ключевые запросы</span>
+    <h2 class="h2" data-a style="--d:.08s">Какие запросы приводят покупателей</h2>
+    <p class="lead" data-a style="--d:.14s">Самые популярные запросы, после которых люди клали букет в корзину, оставляли заявку или покупали. Запросы без результата мы отключаем и сюда не включали.</p>
+    <div class="card mt tablewrap" data-a style="--d:.2s">
+      <table>
+        <tr><th>Запрос</th><th>Заходы</th><th>Корзина</th><th>Заявка</th><th>Покупки</th><th>Конверсия</th></tr>
+        <tr class="hl"><td><b>Автотаргетинг</b></td><td>965</td><td>49</td><td>29</td><td><b>3</b></td><td><b>8,1%</b></td></tr>
+        <tr class="hl"><td>цветы Самара</td><td>240</td><td>12</td><td>7</td><td><b>1</b></td><td><b>7,9%</b></td></tr>
+        <tr class="hl"><td>цветочный салон</td><td>30</td><td>1</td><td>4</td><td><b>1</b></td><td><b>16,7%</b></td></tr>
+        <tr><td>цветочный магазин самара</td><td>85</td><td>3</td><td>4</td><td>·</td><td><b>8,2%</b></td></tr>
+        <tr><td>магазин цветов самара</td><td>66</td><td>4</td><td>2</td><td>·</td><td><b>9,1%</b></td></tr>
+        <tr><td>заказать цветы самара</td><td>59</td><td>2</td><td>1</td><td>·</td><td><b>5,1%</b></td></tr>
+        <tr><td>купить розы, заказать розы</td><td>59</td><td>2</td><td>2</td><td>·</td><td><b>6,8%</b></td></tr>
+      </table>
+      <p class="small">Конверсия: доля заходов, которые закончились корзиной или заявкой. Покупки: оплаты через корзину сайта, которые Метрика связала с запросом.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--dark" data-io>
+  <div class="wrap">
+    <span class="tag" data-a>Автотаргетинг</span>
+    <h2 class="h2" data-a style="--d:.08s">Почему мы оставили автотаргетинг включённым</h2>
+    <p class="lead" data-a style="--d:.14s"><b style="color:#fff">Что это.</b> Обычно мы сами задаём фразы, по которым показывается реклама. При автотаргетинге Яндекс сам подбирает запросы по содержанию сайта и объявлений. Он находит людей, которые ищут цветы своими словами: «оригинальный букет на день рождения», «цветы самара доставка».</p>
+    <div class="grid g3 mt">
+      <div class="card card--glass" data-a style="--d:.1s"><div class="kpi" style="color:var(--green)" data-count="42" data-suf="%">42%</div><div class="kpi-l">всех заходов из рекламы</div></div>
+      <div class="card card--glass" data-a style="--d:.18s"><div class="kpi" style="color:var(--green)">3 из 5</div><div class="kpi-l">покупок через корзину, связанных с запросом</div></div>
+      <div class="card card--glass" data-a style="--d:.26s"><div class="kpi" style="color:var(--green)">8,1%</div><div class="kpi-l">конверсия, выше средней 6,7%</div></div>
+    </div>
+    <ul class="clean" data-a style="--d:.3s">
+      <li>Автотаргетинг приводит больше всего людей и покупок, поэтому отключать его невыгодно.</li>
+      <li>Мы регулярно смотрим, по каким запросам он показывался. Лишние, например поиск конкурентов или «сколько стоит одна роза», убираем минус-словами.</li>
+      <li>Лучшие найденные запросы добавляем отдельными фразами со своей ставкой.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="sec sec--grey" id="plan" data-io>
+  <div class="wrap">
+    <span class="tag" data-a>Точки роста и план на месяц</span>
+    <h2 class="h2" data-a style="--d:.08s">Видим каждую продажу и вкладываем в то, что продаёт</h2>
+    <p class="lead" data-a style="--d:.14s">Сейчас мы точно видим продажи с сайта. Звонки и сообщения в мессенджеры пока не связаны с рекламой, поэтому реальных продаж больше, чем в этом отчёте. Следующий шаг: посчитать всё.</p>
+    <div class="steps mt">
+      <div class="card step" data-a style="--d:.05s"><div class="num">1</div><div><h3 class="h3">Коллтрекинг: Mango Office или Calltouch</h3><p class="lead">Сервис выбираете вы, по удобству и цене. На сайте подменяется номер телефона, и каждый звонок с рекламы попадает в CRM с источником и запросом.</p></div></div>
+      <div class="card step" data-a style="--d:.1s"><div class="num">2</div><div><h3 class="h3">Отслеживание мессенджеров</h3><p class="lead">Когда человек с рекламы пишет в WhatsApp, Telegram или Max, в первое сообщение подставляется код. А номер телефона из переписки сопоставляем со сделками в CRM, чтобы посчитать реальное число продаж.</p></div></div>
+      <div class="card step" data-a style="--d:.15s"><div class="num">3</div><div><h3 class="h3">Одна заявка, одна сделка</h3><p class="lead">Оплату из мессенджера менеджер отмечает в сделке, которая пришла с сайта. Тогда отчёт о продажах собирается сам, без ручной сверки.</p></div></div>
+      <div class="card step" data-a style="--d:.2s"><div class="num">4</div><div><h3 class="h3">Оптимизация и масштабирование Директа</h3><p class="lead">Отключаем запросы и площадки без заявок, усиливаем запросы с покупками, переводим кампании на оптимизацию по оплатам и добавляем бюджет туда, где продажа дешевле.</p></div></div>
+      <div class="card card--dark step" data-a style="--d:.25s"><div class="num">5</div><div><h3 class="h3">Повторные продажи по базе</h3><p class="lead">В октябре 52% выручки дали клиенты, которые уже покупали. Загружаем 3 927 номеров из базы во ВКонтакте и Яндекс, напоминаем о себе к Новому году и находим похожих покупателей.</p></div></div>
+    </div>
+    <div class="mt" data-a><a class="btn" href="https://t.me/korotaev_denis" target="_blank" rel="noopener">Обсудить план <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#CEFE46"/><path d="M16 28L28 16M20 16H28V24" fill="none" stroke="#202020" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+</section>
+
+<footer class="wrap foot"><span>TargetFactory · отчёт для Milovini</span><span>Источники: Яндекс Директ, Яндекс Метрика, Тильда, amoCRM</span></footer>
+
+<script>
+(function(){
+  var fmt=function(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')};
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function count(el){
+    var to=+el.dataset.count, suf=el.dataset.suf||'', t0=null, dur=1300;
+    if(reduce){el.textContent=fmt(to)+suf;return}
+    function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=fmt(to*e)+suf;if(p<1)requestAnimationFrame(step)}
+    el.textContent='0'+suf; requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return; var el=e.target; el.classList.add('in');
+    el.querySelectorAll('[data-count]').forEach(function(c){if(!c.dataset.done){c.dataset.done=1;count(c)}});
+    io.unobserve(el);
+  })},{threshold:0,rootMargin:'0px 0px -12% 0px'});
+  document.querySelectorAll('[data-io]').forEach(function(s){io.observe(s)});
+  // элементы с data-a вне секций с data-io
+  document.querySelectorAll('[data-a]').forEach(function(a){if(!a.closest('[data-io]'))io.observe(a)});
+})();
+</script>
+</body>
+</html>
